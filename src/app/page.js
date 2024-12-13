@@ -176,6 +176,7 @@ const HomePage = () => {
                 alt={event.name}
                 width={500}
                 height={500}
+                priority
                 className="w-full h-[40vh] object-cover rounded cursor-pointer"
               />
             </div>
