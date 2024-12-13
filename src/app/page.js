@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./components/modal"; // Componente para los detalles del evento
 import Cart from "./components/cart"; // Componente para el carrito
+import Image from "next/image";
 
 const HomePage = () => {
   const [cart, setCart] = useState([]);
@@ -12,10 +13,10 @@ const HomePage = () => {
   const events = [
     {
       id: '3',
-      image: './sessionimg14.jpg', // Actualiza con la imagen correspondiente
+      image: '/sessionimg14.jpg', // Actualiza con la imagen correspondiente
       name: 'Session - Edición Especial',
       price: 2000.0, // Estima un precio si no se proporcionó
-      flyer: './session14.jpeg', // Actualiza con el flyer correspondiente
+      flyer: '/session14.jpeg', // Actualiza con el flyer correspondiente
       description: '14 diciembre',
       details: {
         subtitle: 'Cumbia y Reggaetón Old School',
@@ -25,14 +26,14 @@ const HomePage = () => {
       },
       extraDescription:
         '¡No te pierdas esta edición especial de Session el 14 de diciembre! Una noche con los mejores ritmos de cumbia y reggaetón old school, acompañada de un line-up espectacular: Alan Villafañe, Maxi Ramos y Kechu DJ. Disfruta de la recepción con helados y vive una noche inolvidable.',
-      instagramLink: 'https://www.instagram.com/specialsession/', // Reemplaza con el link correcto
+      instagramLink: 'https://www.instagram.com/maldito_miercoles_sj/', // Reemplaza con el link correcto
     },
     {
       id: '4',
-      image: './caserioimg.jpg', // Actualiza con la imagen correspondiente
+      image: '/caserioimg.jpg', // Actualiza con la imagen correspondiente
       name: 'El Caserio',
       price: 2500.0,
-      flyer: './caserio.jpeg', // Actualiza con el flyer correspondiente
+      flyer: '/caserio.jpeg', // Actualiza con el flyer correspondiente
       description: '21 diciembre',
       details: {
         subtitle: '¡Prepárate para una noche épica en El Caserío Club!',
@@ -42,14 +43,14 @@ const HomePage = () => {
       },
       extraDescription:
         'Este 21 de diciembre llega la Session #13, una fiesta única llena de energía y los mejores beats. Disfruta de la música de artistas increíbles como Gnabry, Kevo DJ, Juana Vincet, y Adri Fuentes, quienes harán vibrar a La Meseta con su talento.',
-      instagramLink: 'https://www.instagram.com/elcaserioclub/', // Reemplaza con el link correcto
+      instagramLink: 'https://www.instagram.com/maldito_miercoles_sj/', // Reemplaza con el link correcto
     },
     {
       id: '5',
-      image: './sessionimg.jpg', // Actualiza con la imagen correspondiente
+      image: '/sessionimg.jpg', // Actualiza con la imagen correspondiente
       name: 'Session 31 de Diciembre',
       price: 3000.0,
-      flyer: './session31.jpeg', // Actualiza con el flyer correspondiente
+      flyer: '/session31.jpeg', // Actualiza con el flyer correspondiente
       description: '31 diciembre',
       details: {
         subtitle: 'Cierra el año con el evento más exclusivo en La Meseta',
@@ -59,13 +60,12 @@ const HomePage = () => {
       },
       extraDescription:
         'Prepárate para cerrar el año con el evento más exclusivo en La Meseta, este 31 de diciembre. Una noche cargada de buena música y energía, con un increíble line-up: Oriana Carrieri Mdz, Tainy Loops (ex DJ de Daddy Yankee), Kechu (DJ residente), Maxi Ramos (DJ residente). Ven a disfrutar de una atmósfera única y celebra el comienzo del 2025 en el mejor lugar de San Juan.',
-      instagramLink: 'https://www.instagram.com/mesetaevents/', // Reemplaza con el link correcto
+      instagramLink: 'https://www.instagram.com/maldito_miercoles_sj/', // Reemplaza con el link correcto
     }
   ];
-  
+
   const addToCart = (event) => {
     if (cart.length > 0 && cart[0].event.id !== event.id) {
-      // Si se intenta agregar un evento diferente al que está en el carrito, muestra el modal de advertencia
       setWarningModal(true);
       return;
     }
@@ -74,20 +74,15 @@ const HomePage = () => {
       const itemIndex = prevCart.findIndex((item) => item.event.id === event.id);
 
       if (itemIndex > -1) {
-        // Si ya está en el carrito, incrementa la cantidad
-        const updatedCart = prevCart.map((item, index) =>
+        return prevCart.map((item, index) =>
           index === itemIndex
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
-        return updatedCart;
       } else {
-        // Si no está, agrega el evento
         return [...prevCart, { event, quantity: 1 }];
       }
     });
-
-    setIsCartOpen(true); // Abre el carrito al agregar un evento
   };
 
   const openModal = (event) => {
@@ -176,10 +171,12 @@ const HomePage = () => {
             className="p-4 rounded shadow hover:shadow-lg transition flex flex-col items-center justify-between"
           >
             <div className="w-full mb-4" onClick={() => openModal(event)}>
-              <img
+              <Image
                 src={event.image}
                 alt={event.name}
-                className="w-full h-[40vh] object-cover rounded"
+                width={500}
+                height={500}
+                className="w-full h-[40vh] object-cover rounded cursor-pointer"
               />
             </div>
             <div className="flex flex-col text-left w-full">

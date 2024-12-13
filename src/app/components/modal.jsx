@@ -60,10 +60,6 @@ const Modal = ({ event, onClose, addToCart }) => {
                       </span>{" "}
                       {event.details.mainDJ}
                     </p>
-                    <p className="text-gray-400">
-                      <span className="font-bold text-gray-300">Warmup:</span>{" "}
-                      {event.details.warmup}
-                    </p>
                   </>
                 ) : (
                   <p className="text-gray-400">Detalles no disponibles</p>
