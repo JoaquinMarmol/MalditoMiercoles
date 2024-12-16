@@ -17,7 +17,7 @@ const HomePage = () => {
       name: 'Session - Edición Especial',
       price: 2000.0, // Estima un precio si no se proporcionó
       flyer: '/session14.jpeg', // Actualiza con el flyer correspondiente
-      description: '14 diciembre',
+      description: '14 Diciembre',
       details: {
         subtitle: 'Cumbia y Reggaetón Old School',
         mainDJ: 'Alan Villafañe, Maxi Ramos, Kechu DJ',
@@ -34,7 +34,7 @@ const HomePage = () => {
       name: 'El Caserio',
       price: 2500.0,
       flyer: '/caserio.jpeg', // Actualiza con el flyer correspondiente
-      description: '21 diciembre',
+      description: '21 Diciembre',
       details: {
         subtitle: '¡Prepárate para una noche épica en El Caserío Club!',
         mainDJ: 'Gnabry, Kevo DJ, Juana Vincet, Adri Fuentes',
@@ -51,7 +51,7 @@ const HomePage = () => {
       name: 'Session 31 de Diciembre',
       price: 3000.0,
       flyer: '/session31.jpeg', // Actualiza con el flyer correspondiente
-      description: '31 diciembre',
+      description: '31 Diciembre',
       details: {
         subtitle: 'Cierra el año con el evento más exclusivo en La Meseta',
         mainDJ: 'Oriana Carrieri Mdz, Tainy Loops, Kechu, Maxi Ramos',
