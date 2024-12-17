@@ -12,7 +12,7 @@ const HomePage = () => {
 
   const events = [
     {
-      id: '3',
+      id: '5',
       image: '/sessionimg14.jpg', // Actualiza con la imagen correspondiente
       name: 'Session - Edición Especial',
       price: 2000.0, // Estima un precio si no se proporcionó
@@ -46,7 +46,7 @@ const HomePage = () => {
       instagramLink: 'https://www.instagram.com/maldito_miercoles_sj/', // Reemplaza con el link correcto
     },
     {
-      id: '5',
+      id: '3',
       image: '/sessionimg.jpg', // Actualiza con la imagen correspondiente
       name: 'Session 31 de Diciembre',
       price: 3000.0,
